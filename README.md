@@ -7,8 +7,6 @@
 
 This report documents the steps taken to identify and compromise the BlueMoon target machine, from network discovery to obtaining root access.
 
-> **Lab note:** This walkthrough contains commands, credentials, and privilege-escalation steps from the supplied report. Use them only in an authorised lab environment.
-
 ## 1. Host Discovery
 
 I used `ifconfig` to identify the attacker machine's IP address. Then, I scanned the local network for available hosts using Nmap.
@@ -140,25 +138,3 @@ This provided root-level access to the host system. I then retrieved the final r
 
 ![Docker-based privilege escalation and root flag](images/screenshot-14.png)
 
-## Summary
-
-The assessment followed this sequence:
-
-1. Discovered the target host using Nmap.
-2. Enumerated web directories using Gobuster.
-3. Followed a webpage redirect and extracted credentials from a QR code.
-4. Accessed the FTP service and retrieved password-related files.
-5. Used Hydra to identify a possible password for Robin.
-6. Connected through SSH and retrieved the first user flag.
-7. Identified command injection in `feedback.sh`.
-8. Abused Robin's sudo permission to obtain a shell as Jerry.
-9. Exploited Docker group access to obtain root privileges and retrieve the root flag.
-
----
-
-## Notes to Verify Before Publishing
-
-- The report initially identifies the target as `192.168.56.103`, but later mentions `102.168.56.103` and `193.168.56.103`. Confirm the correct target IP and update the report before publishing.
-- Replace `<target-ip>` in the SSH and FTP commands with the confirmed target address.
-- The original report does not show the complete Gobuster or Hydra command syntax, so those commands have not been reconstructed here.
-- Keep real credentials and flag values out of a public repository. The password shown above is retained from the supplied report; replace or redact it if it is sensitive.
