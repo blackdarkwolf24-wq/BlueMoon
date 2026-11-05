@@ -1,7 +1,6 @@
 # BlueMoon – System Hacking Report
 
 **Author:** Zul Arif Danial  
-**Student ID:** 52215125986
 
 ## Overview
 
